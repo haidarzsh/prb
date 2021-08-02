@@ -1,4 +1,4 @@
-## Dotfiles
+## swiftrice
 Set of personal reusable dotfiles managed through [GNU Stow](https://www.gnu.org/software/stow/). It contains useful utility scripts, config files for programs, Bash configs and X profiles.
 
 ## Installation
