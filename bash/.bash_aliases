@@ -26,10 +26,9 @@ alias sus='sudo systemctl --suspend'
 # Git
 # =====
 
-alias gita='git add .'
-alias gitc='git commit'
-alias gitp='git push'
-alias gitco='git checkout'
+alias 'gitc'='git commit'
+alias 'gitp'='git push'
+alias 'gitco'='git checkout'
 
 # =====
 # grep

@@ -22,6 +22,7 @@ fi
 # ===============
 # Custom Scripts
 # ===============
+
 export PATH=$PATH:/home/$USER/.local/bin
 
 # =========
