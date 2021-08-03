@@ -38,6 +38,7 @@ fi
 # ===============
 
 export PATH=$PATH:/home/$USER/.local/bin
+export PATH=$PATH:/home/$USER/.local/bin/dwmblocks
 
 # =========
 # Go Paths

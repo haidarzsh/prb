@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# ================================
+# Current download & upload speed
+# ================================
+
+interface=$(ip link | grep -i "state up" | cut -d ' ' -f 2 | sed 's/://')
+current_speed=$(ifstat $interface | grep $interface | tr -s [:space:] | cut -d ' ' -f 6)
+
+echo $(( current_speed/1024 ))

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# ========================================
+# Shows total number of installed packages
+# ========================================
+
+case $BLOCK_BUTTON in
+  1) sedsid -f "$TERMINAL" -e "sudo pacman -Syu";;
+esac
+
+pacman -Q | wc -l | sed 's/^/📦/'

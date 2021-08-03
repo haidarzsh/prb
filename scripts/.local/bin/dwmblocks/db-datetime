@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# ============
+# Date & Time
+# ============
+
+
+case $BLOCK_BUTTON in
+  1) notify-send "Show detailed date and time here"
+esac
+
+date '+%H:%M'
