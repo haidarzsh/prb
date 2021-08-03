@@ -35,3 +35,15 @@ alias 'gitco'='git checkout'
 # =====
 
 alias grep='grep --color=auto'
+
+# =======
+# NeoVim
+# =======
+
+alias nv='nvim'
+
+# ===========
+# X Utilities
+# ===========
+
+alias ccp='xclip -selection c'
