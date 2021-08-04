@@ -5,6 +5,7 @@
 # ================================
 
 interface=$(ip link | grep -i "state up" | cut -d ' ' -f 2 | sed 's/://')
-current_speed=$(ifstat $interface | grep $interface | tr -s [:space:] | cut -d ' ' -f 6)
+curr_spd=$(ifstat $interface | grep $interface | tr -s [:space:] | cut -d ' ' -f 6)
+curr_spd_kb=$(expr $curr_spd / 1024)
 
-echo $(( current_speed/1024 ))
+echo $curr_spd_kb "kbps"
