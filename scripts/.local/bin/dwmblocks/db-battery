@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# ==============
+# Battery Status
+# ==============
+
+battery=/sys/class/power_supply/BAT?
+
+if [ -f $battery ]; then
+  cap=${battery}/capacity
+  batstatus=""
+  case "$(cat "${battery}/status")" in
+		"Full") batstatus="⚡" ;;
+		"Discharging") batstatus="🔋$cap" ;;
+		"Charging") if [ $cap -gt 15 ]; then batstatus="🔌$cap"; else batstatus="❗$cap"; fi ;;
+		"Not charging") batstatus="⚠️$cap" ;;
+		"Unknown") batstatus="♻️$cap" ;;
+	esac
+
+  if [ ! -z $batstatus ]; then
+    echo "$batstatus"
+  fi
+fi

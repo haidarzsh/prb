@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# ==============
+# Battery Status
+# ==============
+
+batter_status=
+
+# echo $battery_status

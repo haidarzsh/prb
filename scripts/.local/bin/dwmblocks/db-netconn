@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# ==========================
+# Network Connection Status
+# ==========================
+
+netstatus=$(ip link | grep -i "state UP")
+if [ -z "$netstatus" ]; then
+  netstatus="🌐"
+else
+  netstatus="📡"
+fi
+
+echo "$netstatus"
