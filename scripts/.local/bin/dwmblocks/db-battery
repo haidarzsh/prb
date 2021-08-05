@@ -4,10 +4,13 @@
 # Battery Status
 # ==============
 
-battery=/sys/class/power_supply/BAT?
+for b in /sys/class/power_supply/BAT?; do
+  battery=$b
+  break
+done;
 
-if [ -f $battery ]; then
-  cap=${battery}/capacity
+if [ -d $battery ]; then
+  cap=$(cat ${battery}/capacity)
   batstatus=""
   case "$(cat "${battery}/status")" in
 		"Full") batstatus="⚡" ;;
@@ -19,5 +22,7 @@ if [ -f $battery ]; then
 
   if [ ! -z $batstatus ]; then
     echo "$batstatus"
+  else
+    echo "error"
   fi
 fi
