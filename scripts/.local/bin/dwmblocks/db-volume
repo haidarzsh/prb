@@ -1,2 +1,23 @@
 #!/bin/sh
 
+# =====================
+# volume & sound status
+# =====================
+
+ismuted=$(pamixer --get-mute)
+
+if [ ! -z "$ismuted" ] && [ "$ismuted" = "true" ]; then
+  echo "🔇"
+  exit 0
+fi
+
+volume=$(pamixer --get-volume)
+if [ ! -z "$volume" ]; then
+  if [[ $volume -ge 70 ]]; then
+    echo "🔊$volume"
+  elif [[ $volume -ge 30 ]]; then
+    echo "🔉$volume"
+  else
+    echo "🔈$volume"
+  fi
+fi

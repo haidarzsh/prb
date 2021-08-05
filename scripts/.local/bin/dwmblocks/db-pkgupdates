@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# ===================================
+# Number of available package updates
+# ===================================
+
+upgradablePkgsCount=$(pacman -Qu | wc -l)
+echo 📦"$upgradablePkgsCount"

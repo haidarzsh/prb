@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # ============================
 # wttr.in Current Temperature
@@ -9,4 +9,6 @@ case $BLOCK_BUTTON in
   1) setsid -f $TERMINAL -e "curl wttr.in/mingora";;
 esac
 
-curl -s "wttr.in/mingora?0?T" | grep -i "°C" | grep -o [[:digit:]]* | head -n1 | sed 's/$/°/'
+temp=$(curl -s "wttr.in/mingora?0?T" | grep -i "°C" | grep -o [[:digit:]]* | head -n1)
+
+echo 🔥"$temp"°
