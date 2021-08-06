@@ -1,14 +1,20 @@
 #!/bin/sh
 
 # ============================
-# wttr.in Current Temperature
+# wttr.in current temperature
 # ============================
 
+temp=$(curl -s "wttr.in/mingora?0?T" | grep -i "°C" | grep -o "[[:digit:]]*" | head -n1)
+if [ -z "$temp" ]; then
+  exit 1
+fi
 
-case $BLOCK_BUTTON in
-  1) setsid -f $TERMINAL -e "curl wttr.in/mingora";;
-esac
+icon="😌"
 
-temp=$(curl -s "wttr.in/mingora?0?T" | grep -i "°C" | grep -o [[:digit:]]* | head -n1)
+if [[ "$temp" -ge 32 ]]; then
+  icon="🥵"
+elif [[ "$temp" -le 12 ]]; then
+  icon="🥶"
+fi
 
-echo 🔥"$temp"°
+echo "${icon}${temp}°"

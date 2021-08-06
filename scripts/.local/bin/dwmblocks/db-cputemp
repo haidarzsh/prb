@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# ======================================
+# average temperature for all cpu cores
+# ======================================
+
+if ! [ $(command -v "sensors") ]; then
+  exit 1
+fi
+
+tempsum=0
+while read -r core; do
+  temp=$(echo $core | tr -s '[:space:]' | cut -d ' ' -f 3 | cut -d '.' -f 1 | sed 's/+//')
+  tempsum=$(($tempsum+$temp))
+done <<<$(sensors | grep -iw "core")
+
+tempavg=$(( $tempsum/$(sensors | grep -iwc "core") ))
+
+echo "🔥${tempavg}°"

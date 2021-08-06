@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# =================================
+# Shows available disk space for /
+# =================================
+
+availspace=$(df -h | grep -iw / | tr -s [:space:] | cut -d ' ' -f 4)
+if [ -z "$availspace" ]; then
+  exit 0
+fi
+
+echo 💾"$availspace"
+
+

@@ -5,7 +5,20 @@
 # ================================
 
 interface=$(ip link | grep -i "state up" | cut -d ' ' -f 2 | sed 's/://')
-curr_spd=$(ifstat $interface | grep $interface | tr -s [:space:] | cut -d ' ' -f 6)
-curr_spd_kb=$(expr $curr_spd / 1024)
+if [ -z $interface ]; then
+  exit 0
+fi
 
-echo $curr_spd_kb "kbps"
+stats=$(ifstat $interface | grep -iw $interface | tr -s '[:space:]')
+
+if [ -z "$stats" ]; then
+ exit 1
+fi
+
+rxbytes=$(echo $stats | cut -d ' ' -f 6)
+txbytes=$(echo $stats | cut -d ' ' -f 8)
+
+rxkb=$(bc <<< $rxbytes/1024)
+txkb=$(bc <<< $txbytes/1024)
+
+echo " 🔻${rxkb}k 🔺${txkb}k"
