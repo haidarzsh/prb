@@ -11,7 +11,9 @@ else
   netstatus="📡"
   if [ -f /proc/net/wireless ]; then
     signal_strength=$(cat /proc/net/wireless | grep wlan0 | tr -s [:space:] | cut -d ' ' -f 4 | sed 's/\.//')
-    netstatus=${netstatus}${signal_strength}%
+    if [ ! -z "$signal_strength" ]; then
+      netstatus=${netstatus}${signal_strength}%
+    fi
   fi
 fi
 

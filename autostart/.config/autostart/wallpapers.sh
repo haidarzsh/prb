@@ -4,7 +4,7 @@
 # sets wallpaper on multipe monitors
 # ===================================
 
-background_dir=/home/$USER/.local/share/backgrounds
+bgdir=/home/$USER/.local/share/backgrounds
 
 if ! [ -x "$(command -v xwallpaper)" ]; then
   echo "xwallpaper is not installed" >&2
@@ -18,6 +18,16 @@ fi
 
 xrandr | grep -wi connected | while read -r line; do
   display=$(echo "$line" | cut -d ' ' -f 1)
-  order=$(echo "$line" | cut -d ' ' -f 3)
-  xwallpaper --output $display --center ${background_dir}/${order}.png
+  dimensions=$(echo "$line" | grep -ioE "[[:digit:]]*x[[:digit:]]*" | head -n1 | tr -d [:space:])
+  if [ ! -z "$dimensions" ]; then
+    width=$(echo $dimensions | cut -d 'x' -f 1)
+    height=$(echo $dimensions | cut -d 'x' -f 2)
+    orientation="wide"
+    if [[ "$height" -ge "$width" ]]; then
+      orientation="vertical"
+    fi
+    xwallpaper --output "$display" --zoom ${bgdir}/${orientation}.jpg
+  else
+    xwallpaper --output "$display" --zoom ${bgdir}/wide.jpg
+  fi
 done
