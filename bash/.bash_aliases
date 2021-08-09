@@ -1,34 +1,44 @@
+#          _  _                       
+#         | |(_)                      
+#    _____| | _ _____  ___ _____  ___ 
+#   (____ | || (____ |/___) ___ |/___)
+#   / ___ | || / ___ |___ | ____|___ |
+#   \_____|\_)_\_____(___/|_____|___/ 
+#                                  
+
+# =======
+# pacman
+# =======
+
+alias install='yay -S'
+alias search='yay -Ss'
+alias remove='sudo pacman -Rns'
+alias upgrade='sudo pacman -Syu'
+
 # ====
 # lsd
 # ====
 
-alias l='lsd'
+alias l='lsd -a'
 alias ll='lsd -l'
 alias lt='lsd --tree'
 alias la='lsd -la'
 
-# ====
-# mpv
-# ====
-
-alias mpv='mpv .'
-
-
 # ===============
-# Power Commands
+# power commands
 # ===============
 
 alias die='shutdown -h now'
 alias out='pkill x'
 alias sus='sudo systemctl --suspend'
 
-# =====
-# Git
-# =====
+# ====
+# git
+# ====
 
-alias 'gitc'='git commit'
-alias 'gitp'='git push'
-alias 'gitco'='git checkout'
+alias gita='git add .'
+alias gitc='git commit'
+alias gitp='git push'
 
 # =====
 # grep
@@ -37,13 +47,13 @@ alias 'gitco'='git checkout'
 alias grep='grep --color=auto'
 
 # =======
-# NeoVim
+# neovim
 # =======
 
-alias nv='nvim'
+alias v='nvim'
 
 # ===========
-# X Utilities
+# x utilities
 # ===========
 
 alias ccp='xclip -selection c'
