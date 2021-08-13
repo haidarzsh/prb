@@ -1,0 +1,11 @@
+# Set monitors first
+set-monitors && set-wallpaper
+
+# starts dunst 
+dunst &
+
+# starts dwmblocks
+dwmblocks &
+
+
+

@@ -1,3 +1,7 @@
-sh /home/$USER/.config/autostart/monitors.sh
-sh /home/$USER/.config/autostart/wallpapers.sh
+#!/bin/sh
+
+# Setup the desktop environment and launch programs
+[ -f "$HOME/.xprofile" ] && . "$HOME/.xprofile" ]
+
+
 exec dwm
