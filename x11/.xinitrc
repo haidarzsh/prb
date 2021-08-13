@@ -3,5 +3,4 @@
 # Setup the desktop environment and launch programs
 [ -f "$HOME/.xprofile" ] && . "$HOME/.xprofile" ]
 
-
 exec dwm

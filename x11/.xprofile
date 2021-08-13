@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Set monitors first
 set-monitors && set-wallpaper
 

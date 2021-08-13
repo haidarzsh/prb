@@ -4,4 +4,4 @@
 # Date & Time
 # ============
 
-echo 🕗 $(date +%H:%M:%S)
+echo $(date +%H:%M)

@@ -5,4 +5,5 @@
 # ===================================
 
 upgradablePkgsCount=$(pacman -Qu | wc -l)
+[ $upgradablePkgsCount -gt 0 ] && notify-send "Updates" "$upgradablePkgsCount new updates";
 echo 📦"$upgradablePkgsCount"
