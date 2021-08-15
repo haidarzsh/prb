@@ -23,7 +23,7 @@ xrandr | grep -wi connected | while read -r line; do
     width=$(echo $dimensions | cut -d 'x' -f 1)
     height=$(echo $dimensions | cut -d 'x' -f 2)
     orientation="wide"
-    if [[ "$height" -ge "$width" ]]; then
+    if [ "$height" -ge "$width" ]; then
       orientation="vertical"
     fi
     xwallpaper --output "$display" --zoom ${bgdir}/${orientation}.jpg
