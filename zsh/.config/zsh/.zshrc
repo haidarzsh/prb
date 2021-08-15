@@ -27,16 +27,17 @@ setopt interactive_comments
 # history
 # =======
 
-HISTSIZE=999999999
-SAVEHIST=999999999
-HISTFILE=~/.cache/zsh/history
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+export HISTFILE=~/.cache/zsh_history
+
+bindkey '^R' history-incremental-search-backward
 
 # =======
 # aliases
 # =======
 
 [ -f "${HOME}/.config/shell/aliases" ] && source "${HOME}/.config/shell/aliases"
-
 
 # ==============
 # autocompletion
